@@ -6,6 +6,9 @@
 // variabili
 var numArray = [];
 var randomNumb;
+var number = false;
+var scores = 0
+var user;
 
 // funzione per generare numeri casuali
 function getRandomInt(min,max) {
@@ -31,9 +34,6 @@ while (numbArray.length < 5) {
   }
 
 // imposto il tempo da far trascorrere prima che l'utente possa rispondere
-setTimeout(numberUser, 3000);
-function numberUser() {
-  
-}
+    setTimeout(numberUser, 30000);
 
 // check del software dei numeri inseriti
