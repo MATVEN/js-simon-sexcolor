@@ -22,4 +22,8 @@ while (numbArray.length < 5) {
     alert(numbArray);
   }
 
-// 
+// l'utente dovrà inserire i 5 numeri casuali
+for (var i = 0; i < 5; i++) {
+  var numero = parseInt(prompt('Inserisci uno dei cinque numeri memorizzati'));
+  console.log(numero);
+}
