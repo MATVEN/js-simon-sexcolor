@@ -5,3 +5,11 @@
 // variabili
 var name = prompt('Scrivi il tuo nome');
 var sex = prompt('Specifica il tuo sesso');
+var element = getElementById('user');
+
+// condizioni
+if (sex = maschio) {
+  element.className = 'male' + 'Ciao' + name;
+} else if (sex = femmina) {
+  element.className = 'female' + 'Ciao' + name;
+}
