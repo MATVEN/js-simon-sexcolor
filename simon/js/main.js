@@ -5,10 +5,6 @@
 
 // variabili
 var numArray = [];
-var randomNumb;
-var number = false;
-var scores = 0
-var user;
 
 // funzione per generare numeri casuali
 function getRandomInt(min,max) {
@@ -17,23 +13,67 @@ function getRandomInt(min,max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
-// ciclo per generare numeri casuali
-while (numbArray.length < 5) {
-  randomNumb = getRandomInt(1, 101);
-  if (numbArray.includes(randomNumb) == false) {
-    numbArray.push(randomNumb);
-    alert(numbArray);
-  }
-
-  // l'utente dovrà inserire i 5 numeri casuali
-  function numberUser() {
-    for (var i = 0; i < 5; i++) {
-      var numero = parseInt(prompt('Inserisci uno dei cinque numeri memorizzati'));
-      console.log(numero);
+function casualNumb(size) {
+  var randomNumber = [];
+  while (randomNumber.length < size) {
+    var random = getRandomInt(1,100);
+      if (!randomNumber.includes(random)) {
+        randomNumber.push(random);
     }
   }
+  return randomNumber;
+}
 
-// imposto il tempo da far trascorrere prima che l'utente possa rispondere
-    setTimeout(numberUser, 30000);
+function comparator(number,array) {
+  var flag = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] == number) {
+      flag = true;
+      console.log(i);
+    }
+  }
+  return flag;
+}
 
-// check del software dei numeri inseriti
+  // l'utente dovrà inserire i 5 numeri casuali
+  function checkIfEntered(numberUser) {
+    var check = false;
+    for (var i = 0; i < numArray.length; i++) {
+      if (numberUser == numArray[i]) {
+        check = true;
+      }
+    }
+    return check;
+  }
+
+    var casual = casualNumb(5);
+    console.log(casual);
+
+    // alert
+    alert(casual);
+
+    // imposto il tempo da far trascorrere prima che l'utente possa rispondere
+    setTimeout(game, 30000);
+
+    // check del software dei numeri inseriti
+    function game() {
+      var arrayFound = [];
+      while (numArray.length < casual.length) {
+        var numero = parseInt(prompt('Inserisci uno dei cinque numeri memorizzati'));
+        if (checkIfEntered(numero) != true) {
+          numArray.push(numero);
+          if (comparator(numero,casual)) {
+            arrayFound.push(numero);
+          }
+        }else {
+          alert('Numero già inserito!');
+        }
+      }
+      if (arrayFound.length != 0) {
+        console.log('Indovinato!' + arrayFound.length + ' numeri, ovvero: ' + arrayFound);
+      } else {
+        console.log('Non hai indvinato nessun numero');
+      }
+      console.log(arrayFound);
+      console.log(arrayFound.length);
+    }

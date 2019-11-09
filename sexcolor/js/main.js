@@ -8,8 +8,8 @@ var sex = prompt('Specifica il tuo sesso');
 var element = getElementById('user');
 
 // condizioni
-if (sex = maschio) {
+if (sex == 'maschio') {
   element.className = 'male' + 'Ciao' + name;
-} else if (sex = femmina) {
+} else if (sex == 'femmina') {
   element.className = 'female' + 'Ciao' + name;
 }
